@@ -1,0 +1,220 @@
+<div class="container flex flex-wrap justify-content-center align-content-center px-3">
+
+    <form class="bg-white px-3 border-round-lg shadow-3" (ngSubmit)="onFormSubmitted()" #registrationForm="ngForm">
+        <h1 class="text-center">Registration Form</h1>
+
+        <div class="username flex flex-wrap gap-4 mb-4">
+            <div class="flex-auto">
+                <p-floatLabel>
+                    <input
+                        class="w-full"
+                        pInputText 
+                        id="firstname" 
+                        name="firstname" 
+                        ngModel
+                        #fname="ngModel"
+                        required
+                    />
+                    <label for="firstname">First name</label>
+                </p-floatLabel>
+                <div *ngIf="fname.invalid && fname.touched">
+                    <small class="text-red-500 font-semibold">*Firs tname field is required</small>
+                </div>
+            </div>
+        
+            <div class="flex-auto">
+                <p-floatLabel>
+                    <input
+                    class="w-full"
+                        pInputText 
+                        id="lastname"
+                        name="lastname"
+                        ngModel
+                        #lname="ngModel"
+                        required
+                    />
+                    <label for="lastname">Last name</label>
+                </p-floatLabel>
+                <div *ngIf="lname.invalid && lname.touched">
+                    <small class="text-red-500 font-semibold">*Last name field is required</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="email mb-4">
+            <div>
+                <p-floatLabel>
+                    <input 
+                        class="w-full" 
+                        pInputText 
+                        id="email" 
+                        email
+                        name="email"
+                        ngModel
+                        #email="ngModel"
+                        required
+                    />
+                    <label for="email">Email Address</label>
+                </p-floatLabel>
+                <div *ngIf="email.invalid && email.touched">
+                    <small class="text-red-500 font-semibold">*You entered an invalid email address</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="password mb-4">
+            <div>
+                <p-floatLabel>
+                    <input 
+                        class="w-full"
+                        pInputText
+                        type="password"
+                        ngModel
+                        #password="ngModel"
+                        required
+                        minlength="6"
+                        name="password"
+                        id="password"
+                    />
+                    <label for="password">Password</label>
+                </p-floatLabel>
+                <div *ngIf="password.invalid && password.touched">
+                    <small class="text-red-500 font-semibold">*You entered an invalid password</small>
+                </div>
+                <div *ngIf="password.untouched">
+                    <small class="text-xs font-normal">*Please enter your password with length at least 6 (characters & numbers)</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="phone-and-date flex flex-wrap gap-4 mb-4">
+            <div class="flex-auto">
+                <p-floatLabel>
+                    <input
+                        class="w-full"
+                        type="number"
+                        pInputText 
+                        id="phone"
+                        name="phone"
+                        ngModel
+                        #phone="ngModel"
+                        required
+                    />
+                    <label for="phone">phone</label>
+                </p-floatLabel>
+                <div *ngIf="phone.invalid && phone.touched">
+                    <small class="text-red-500 font-semibold">*Phone number field is required</small>
+                </div>
+            </div>
+
+            <div class="flex-auto">
+                <p-floatLabel>
+                    <p-calendar
+                        [style]="{width: '100%'}"
+                        inputId="birth_date" 
+                        name="bod"
+                        ngModel
+                        #dob="ngModel"
+                        required
+                    />
+                    <label for="birth_date">Birth Date</label>
+                </p-floatLabel>
+                <div *ngIf="dob.invalid && dob.touched">
+                    <small class="text-red-500 font-semibold">*Please enter you birth date</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="gender mb-4">
+            <div class="flex flex-wrap gap-3">
+                <h3 class="m-0">Gender:</h3>
+                <div class="flex align-items-center">
+                    <p-radioButton 
+                        name="gender" 
+                        value="male" 
+                        inputId="male"
+                        ngModel
+                        required
+                    />
+                    <label for="male" class="ml-2">
+                        Male
+                    </label>
+                </div>
+                
+                <div class="flex align-items-center">
+                    <p-radioButton 
+                        name="gender" 
+                        value="female"
+                        inputId="female"
+                        ngModel
+                    />
+                    <label for="female" class="ml-2">
+                        Female
+                    </label>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="doctor-box flex align-items-center gap-2 mb-4">
+            <p-checkbox 
+                [binary]="true" 
+                inputId="doctor"
+                name="isDoctor" 
+                ngModel
+            />
+            <label for="doctor">Are you a doctor?</label>
+        </div>
+
+        <div class="doctor-info mb-4" *ngIf="registrationForm.value.isDoctor">
+            <h3 class="m-0 mb-2">Doctor information:</h3>
+            <div class="doctor-info-inputs flex flex-wrap gap-4">
+                <div class="flex-auto">
+                    <p-dropdown
+                        [style]="{width: '100%'}"
+                        [options]="specializations"
+                        placeholder="Select a specialization"
+                        name="specialization" 
+                        ngModel
+                        required
+                        #spec="ngModel"
+                    />
+                    <div *ngIf="spec.invalid && spec.touched">
+                        <small class="text-red-500 font-semibold">*Please choose you specialization</small>
+                    </div>
+                </div>
+
+                <div class="flex-auto">
+                    <p-floatLabel>
+                        <input  
+                            class="w-full"
+                            type="number"
+                            pInputText 
+                            id="experience"
+                            name="experience"
+                            ngModel
+                            required
+                            #experience="ngModel"
+                        />
+                        <label for="experience">Years of experience</label>
+                    </p-floatLabel>
+                    <div *ngIf="experience.invalid && experience.touched">
+                        <small class="text-red-500 font-semibold">*Experience years field is required</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sumbit-btn flex justify-content-center mb-4">
+            <button 
+                class="w-6 py-2 px-6 text-lg font-semibold border-none border-round-lg cursor-pointer" 
+                type="submit"
+                [disabled]="!registrationForm.valid"
+            >
+                    Submit
+            </button>
+        </div>
+
+    </form>
+
+</div>

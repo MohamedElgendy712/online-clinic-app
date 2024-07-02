@@ -1,0 +1,60 @@
+<div class="container flex flex-wrap justify-content-center align-content-center px-3">
+
+    <form class="bg-white px-3 border-round-lg shadow-3 w-30rem" (ngSubmit)="onFormSubmitted()" #registrationForm="ngForm">
+        <h1 class="text-center">Login Form</h1>
+
+        <div class="email mb-4">
+            <div>
+                <p-floatLabel>
+                    <input 
+                        class="w-full" 
+                        pInputText 
+                        id="email" 
+                        email
+                        name="email"
+                        ngModel
+                        #email="ngModel"
+                        required
+                    />
+                    <label for="email">Email Address</label>
+                </p-floatLabel>
+                <div *ngIf="email.invalid && email.touched">
+                    <small class="text-red-500 font-semibold">*You entered an invalid email address</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="password mb-4">
+            <div>
+                <p-floatLabel>
+                    <input 
+                        class="w-full"
+                        pInputText
+                        type="password"
+                        ngModel
+                        #password="ngModel"
+                        required
+                        minlength="6"
+                        name="password"
+                        id="password"
+                    />
+                    <label for="password">Password</label>
+                </p-floatLabel>
+                <div *ngIf="password.invalid && password.touched">
+                    <small class="text-red-500 font-semibold">*You entered an invalid password</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="sumbit-btn flex justify-content-center mb-4">
+            <button 
+                class="w-6 py-2 px-6 text-lg font-semibold border-none border-round-lg cursor-pointer" 
+                type="submit"
+                [disabled]="!registrationForm.valid"
+            >
+                    Login
+            </button>
+        </div>
+
+    </form>
+</div>
