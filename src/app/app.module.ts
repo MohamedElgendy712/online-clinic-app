@@ -17,6 +17,7 @@ import { PasswordModule } from 'primeng/password';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -41,7 +42,7 @@ import { LoginComponent } from './login/login.component';
     DropdownModule,
     ButtonModule,
     PasswordModule,
-    
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

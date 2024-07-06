@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { RegistrationService } from '../services/registration.service';
 
 
 
@@ -11,6 +12,7 @@ import { NgForm } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   @ViewChild('registrationForm') form: NgForm | undefined;
+  registerService: RegistrationService = inject(RegistrationService);
 
   specializations: string[] | undefined;
 
@@ -21,6 +23,6 @@ export class RegistrationComponent implements OnInit {
   
 
   onFormSubmitted(){
-    console.log(this.form)
+    this.registerService.register(this.form.value);
   }
 }
