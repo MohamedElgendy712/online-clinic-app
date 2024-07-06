@@ -10,10 +10,10 @@ export class RegistrationService{
     http: HttpClient = inject(HttpClient);
 
     register(user: User){
-        console.log(user)
-        // this.http.post("" , data).subscribe((res) =>{
-        //     console.log(res);
-        // });
+        
+        this.http.post("" , user).subscribe((res) =>{
+            console.log(res);
+        });
         
     }
 }
