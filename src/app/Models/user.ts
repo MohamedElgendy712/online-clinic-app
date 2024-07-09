@@ -8,5 +8,5 @@ export class User{
     gender: string;
     specialization?: string;
     experience?: number;
-    isDocotor: boolean;
+    isDoctor: boolean;
 }

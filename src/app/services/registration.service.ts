@@ -11,9 +11,7 @@ export class RegistrationService{
 
     register(user: User){
         
-        this.http.post("" , user).subscribe((res) =>{
-            console.log(res);
-        });
+        return this.http.post("http://localhost:8080/registrationLogin/register" , user)
         
     }
 }

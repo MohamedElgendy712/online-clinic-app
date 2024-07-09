@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../services/registration.service';
-
-
+import { HttpErrorResponse } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-registration',
@@ -10,6 +10,8 @@ import { RegistrationService } from '../services/registration.service';
   styleUrl: './registration.component.css',
 })
 export class RegistrationComponent implements OnInit {
+
+  constructor(private messageService: MessageService) {}
 
   @ViewChild('registrationForm') form: NgForm | undefined;
   registerService: RegistrationService = inject(RegistrationService);
@@ -21,8 +23,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   
-
   onFormSubmitted(){
-    this.registerService.register(this.form.value);
+    this.registerService.register(this.form.value).subscribe((res) =>{
+      console.log(res);
+    }, (e : HttpErrorResponse) =>{
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: e.error })
+    });
   }
 }

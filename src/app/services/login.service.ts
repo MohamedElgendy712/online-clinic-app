@@ -10,8 +10,6 @@ export class LoginService{
 
     login(user: UserInfo){
         
-        this.http.post("" , user).subscribe((res) => {
-            console.log(res);
-        })
+        return this.http.post("http://localhost:8080/registrationLogin/login" , user)
     }
 }
