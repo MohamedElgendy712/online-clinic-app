@@ -12,33 +12,26 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/registrationLogin/")
+@CrossOrigin
 public class RegistrationLoginController {
 
     @Autowired
     RegistrationServ registrationServ;
+    @Autowired
+    ResponseDTO response;
 
     @PostMapping(path = "register")
     public ResponseEntity<ResponseDTO> register(@RequestBody UserInfoDTO userInfo){
+        registrationServ.registerUser(userInfo);
 
-        if(registrationServ.registerUser(userInfo)){
-            ResponseDTO response = new ResponseDTO("I000000" , "User created successfully");
-            return new ResponseEntity<>(response , HttpStatus.OK);
-        }
-        else {
-            ResponseDTO response = new ResponseDTO("E999999" , "Internal Server Error");
-            return new ResponseEntity<>(response , HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return new ResponseEntity<>(response, response.getCode());
     }
 
     @PostMapping(path = "login")
-    public ResponseEntity<ResponseDTO> login(@RequestBody LoginDTO loginDTO){
-        if(registrationServ.checkPassword(loginDTO.getEmail() , loginDTO.getPassword())) {
-            ResponseDTO response = new ResponseDTO("I000000", "User login successfully");
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }else {
-            ResponseDTO response = new ResponseDTO("E999999" , "Internal Server Error");
-            return new ResponseEntity<>(response , HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO){
+        registrationServ.checkPassword(loginDTO.getEmail() , loginDTO.getPassword());
+
+        return new ResponseEntity<>(response.getMessage(), response.getCode());
     }
 
 }
