@@ -30,7 +30,7 @@ public class RegistrationServ {
     @Autowired
     private PasswordManagement passwordManagement;
     @Autowired
-    ResponseDTO response;
+    private ResponseDTO response;
 
     public void registerUser(UserInfoDTO user){
 
@@ -81,8 +81,6 @@ public class RegistrationServ {
     }
 
     public void savePassword(String email , String password){
-
-        System.out.println("**************** innn **************");
         String hashedPassword = passwordManagement.generateSaltedHash(password);
 
         Password passwordRecord = new Password(email , hashedPassword);
