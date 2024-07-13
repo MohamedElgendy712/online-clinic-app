@@ -14,20 +14,21 @@ import java.util.Random;
 
 @Service
 public class OtpServ {
-    @Autowired
-    private OTP otp;
+
     @Autowired
     private OtpRep otpRep;
     @Autowired
     private ResponseDTO response;
 
-    public void generate(String email){
+    public OTP generate(String email){
 
-        System.out.println(email);
+        OTP otp = new OTP();
 
         otp.setOtpNo(generateOtpNum());
         otp.setCreationDate(new Date());
         otpRep.save(otp);
+
+        return otp;
     }
 
     public int generateOtpNum(){

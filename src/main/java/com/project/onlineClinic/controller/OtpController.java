@@ -18,15 +18,13 @@ public class OtpController {
     @Autowired
     private OtpServ otpServ;
     @Autowired
-    private OTP otp;
-    @Autowired
     private ResponseDTO response;
 
 
 
     @PostMapping("generate")
     public ResponseEntity<OTP> generateOTP(@RequestBody OtpRequestDTO otpRequestDTO){
-        otpServ.generate(otpRequestDTO.getEmail());
+        OTP otp = otpServ.generate(otpRequestDTO.getEmail());
 
         return new ResponseEntity<>(otp , HttpStatus.OK);
     }
