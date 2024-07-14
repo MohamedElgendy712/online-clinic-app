@@ -19,6 +19,8 @@ public class OtpServ {
     private OtpRep otpRep;
     @Autowired
     private ResponseDTO response;
+    @Autowired
+    EmailSenderServ emailSenderServ;
 
     public OTP generate(String email){
 
@@ -28,6 +30,7 @@ public class OtpServ {
         otp.setCreationDate(new Date());
         otpRep.save(otp);
 
+        emailSenderServ.sendEmail(email,"Login OTP", String.valueOf(otp.getOtpNo()));
         return otp;
     }
 

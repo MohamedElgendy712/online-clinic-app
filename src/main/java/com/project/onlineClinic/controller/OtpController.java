@@ -3,6 +3,7 @@ package com.project.onlineClinic.controller;
 import com.project.onlineClinic.dto.OtpRequestDTO;
 import com.project.onlineClinic.dto.ResponseDTO;
 import com.project.onlineClinic.entity.OTP;
+import com.project.onlineClinic.service.EmailSenderServ;
 import com.project.onlineClinic.service.OtpServ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ public class OtpController {
     @Autowired
     private ResponseDTO response;
 
+    @Autowired
+    EmailSenderServ emailSenderServ;
 
 
     @PostMapping("generate")
