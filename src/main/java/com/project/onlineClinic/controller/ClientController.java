@@ -12,7 +12,7 @@ public class ClientController {
     @Autowired
     private ClientServ clientServ;
 
-    @GetMapping("getUserInfo/:email")
+    @GetMapping("getUserInfo/{email}")
     public User getUser(@PathVariable String email){
         return clientServ.getUserInfo(email);
     }
