@@ -16,8 +16,8 @@ public class ClientServ {
     public User getUserInfo(String email){
         return userRep.findByEmail(email);
     }
-    public List<Object[]> findAllDoctors(){
-        return userRep.test();
+    public List<Object[]> findAllSpecialization(){
+        return userRep.findAllSpecialization();
     }
 
 }

@@ -38,4 +38,9 @@ public class User {
     private int experience;
 
     private boolean isDoctor;
+
+
+    public Boolean getIsDoctor() {
+        return isDoctor;
+    }
 }
