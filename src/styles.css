@@ -3,7 +3,9 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-
+*{
+    box-sizing: border-box;
+}
 body{
     margin: 0;
 }

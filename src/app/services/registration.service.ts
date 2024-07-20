@@ -8,9 +8,10 @@ import { User } from "../Models/user";
 })
 export class RegistrationService{
     http: HttpClient = inject(HttpClient);
+    userInfo: User;
 
     register(user: User){
-        
+        this.userInfo = user;
         return this.http.post("http://localhost:8080/registrationLogin/register" , user)
         
     }

@@ -23,6 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { OtpComponent } from './otp/otp.component';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AvatarModule } from 'primeng/avatar';
+import { CategoriesComponent } from './categories/categories.component';
+
 
 
 @NgModule({
@@ -31,7 +35,9 @@ import { HomeComponent } from './home/home.component';
     RegistrationComponent,
     LoginComponent,
     OtpComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,8 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     ToastModule,
     CardModule,
-    InputOtpModule
+    InputOtpModule,
+    AvatarModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

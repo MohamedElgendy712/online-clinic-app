@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
   specializations: string[] | undefined;
 
   ngOnInit(): void {
-    this.specializations = ['spec1', 'spec1', 'spec1', 'spec1', 'spec1'];
+    this.specializations = ['Dentistry', 'Internal Medicine', 'Dermatology', 'Ophthalmology', 'Urology', 'Surgery', 'Orthopedics', 'Otolaryngology (ENT)'];
   }
 
   onFormSubmitted() {
