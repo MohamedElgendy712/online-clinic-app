@@ -2,15 +2,10 @@ package com.project.onlineClinic.controller;
 
 import com.project.onlineClinic.dto.LoginDTO;
 import com.project.onlineClinic.dto.ResponseDTO;
-import com.project.onlineClinic.dto.SpecializationDTO;
 import com.project.onlineClinic.dto.UserInfoDTO;
-import com.project.onlineClinic.entity.Doctor;
 import com.project.onlineClinic.service.ClientServ;
 import com.project.onlineClinic.service.RegistrationServ;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +20,6 @@ public class RegistrationLoginController {
     RegistrationServ registrationServ;
     @Autowired
     ResponseDTO response;
-    @Autowired
-    ClientServ clientServ;
 
     @PostMapping(path = "register")
     public ResponseEntity<ResponseDTO> register(@RequestBody UserInfoDTO userInfo){
@@ -41,6 +34,5 @@ public class RegistrationLoginController {
 
         return new ResponseEntity<>(response, response.getCode());
     }
-
 
 }

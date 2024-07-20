@@ -1,15 +1,11 @@
 package com.project.onlineClinic.service;
 
-import java.sql.*;
-
 import com.project.onlineClinic.dto.ResponseDTO;
 import com.project.onlineClinic.dto.UserInfoDTO;
-import com.project.onlineClinic.entity.Doctor;
+import com.project.onlineClinic.entity.User;
 import com.project.onlineClinic.entity.Password;
-import com.project.onlineClinic.entity.Patient;
-import com.project.onlineClinic.repository.DoctorRep;
+import com.project.onlineClinic.repository.UserRep;
 import com.project.onlineClinic.repository.PasswoedRep;
-import com.project.onlineClinic.repository.PatientRep;
 import com.project.onlineClinic.utility.PasswordManagement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -22,9 +18,7 @@ import java.util.Optional;
 public class RegistrationServ {
 
     @Autowired
-    private DoctorRep doctorRep;
-    @Autowired
-    private PatientRep patientRep;
+    private UserRep userRep;
     @Autowired
     private PasswoedRep passwoedRep;
     @Autowired
@@ -32,51 +26,29 @@ public class RegistrationServ {
     @Autowired
     private ResponseDTO response;
 
-    public void registerUser(UserInfoDTO user){
+    public void registerUser(UserInfoDTO userInfo){
 
-        if(user.isDoctor()){
-            Doctor doctor = new Doctor(user.getFirstName(),user.getLastName(),user.getGender()
-                                        ,user.getEmail(),user.getPhone(),user.getBirthDate()
-                                        ,user.getSpecialization(),user.getExperience());
 
-            try{
-                doctorRep.save(doctor);
-                response.setCode(HttpStatus.OK);
-                response.setMessage("User created successfully");
+        User user = new User(userInfo.getFirstName(),userInfo.getLastName(),userInfo.getGender()
+                                    ,userInfo.getEmail(),userInfo.getPhone(),userInfo.getBirthDate()
+                                    ,userInfo.getSpecialization(),userInfo.getExperience(),userInfo.isDoctor());
 
-            }catch (DataIntegrityViolationException e){
-                response.setCode(HttpStatus.BAD_REQUEST);
-                response.setMessage("The entered email already exist");
-                return;
-            }catch (Exception e){
-                response.setCode(HttpStatus.NOT_FOUND);
-                response.setMessage("Please try again");
-                return;
-            }
+        try{
+            userRep.save(user);
+            response.setCode(HttpStatus.OK);
+            response.setMessage("User created successfully");
 
-        }
-        else{
-
-            Patient patient = new Patient(user.getFirstName(),user.getLastName(),user.getGender()
-                    ,user.getEmail(),user.getPhone(),user.getBirthDate());
-
-            try{
-                patientRep.save(patient);
-                response.setCode(HttpStatus.OK);
-                response.setMessage("User created successfully");
-
-            }catch (DataIntegrityViolationException e){
-                response.setCode(HttpStatus.BAD_REQUEST);
-                response.setMessage("The entered email already exists");
-                return;
-            }catch (Exception e){
-                response.setCode(HttpStatus.NOT_FOUND);
-                response.setMessage("Please try again");
-                return;
-            }
+        }catch (DataIntegrityViolationException e){
+            response.setCode(HttpStatus.BAD_REQUEST);
+            response.setMessage("The entered email already exist");
+            return;
+        }catch (Exception e){
+            response.setCode(HttpStatus.NOT_FOUND);
+            response.setMessage("Please try again");
+            return;
         }
 
-        savePassword(user.getEmail() , user.getPassword());
+        savePassword(userInfo.getEmail() , userInfo.getPassword());
 
     }
 

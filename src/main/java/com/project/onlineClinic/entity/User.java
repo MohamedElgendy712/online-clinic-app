@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Doctor")
-public class Doctor {
+public class User {
 
-    public Doctor(String firstName, String lastName, String gender, String email, String phone, String birthDate, String specialization, int experience) {
+    public User(String firstName, String lastName, String gender, String email, String phone, String birthDate, String specialization, int experience , boolean isDoctor) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -21,6 +21,7 @@ public class Doctor {
         this.birthDate = birthDate;
         this.specialization = specialization;
         this.experience = experience;
+        this.isDoctor = isDoctor;
     }
 
     @Id
@@ -35,4 +36,6 @@ public class Doctor {
     private String birthDate;
     private String specialization;
     private int experience;
+
+    private boolean isDoctor;
 }
