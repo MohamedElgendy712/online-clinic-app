@@ -23,12 +23,10 @@ export class ClientService{
 
             console.log(this.user)
 
-            if(Object.hasOwn(this.user , "isDoctor")){
-                console.log("innn")
-                this.router.navigate['home'];
+            if(this.user.isDoctor){
+                this.router.navigate(['home']);
             }else{
-                console.log("test")
-                this.router.navigate['home'];
+                this.router.navigate(['client' , 'categories']);
             }
         })
     }
