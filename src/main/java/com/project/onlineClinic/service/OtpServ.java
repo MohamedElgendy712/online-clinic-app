@@ -30,7 +30,7 @@ public class OtpServ {
         otp.setCreationDate(new Date());
         otpRep.save(otp);
 
-        emailSenderServ.sendEmail(email,"Login OTP", String.valueOf(otp.getOtpNo()));
+        //emailSenderServ.sendEmail(email,"Login OTP", String.valueOf(otp.getOtpNo()));
         return otp;
     }
 
