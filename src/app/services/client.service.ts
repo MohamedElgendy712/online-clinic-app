@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { User } from "../Models/user";
 import { Router } from "@angular/router";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -26,12 +27,12 @@ export class ClientService{
             if(this.user.isDoctor){
                 this.router.navigate(['home']);
             }else{
-                this.router.navigate(['client' , 'categories']);
+                this.router.navigate(['client']);
             }
         })
     }
 
-    getSpecializations(){
-        return this.http.get("http://localhost:8080/registrationLogin/test")
+    getAllSpecializations(){
+        return this.http.get("http://localhost:8080/user/getAllSpecialization")
     }
 }

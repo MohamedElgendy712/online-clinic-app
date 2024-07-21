@@ -5,6 +5,7 @@ import { LoginComponent } from "./login/login.component";
 import { OtpComponent } from "./otp/otp.component";
 import { HomeComponent } from "./home/home.component";
 import { CategoriesComponent } from "./categories/categories.component";
+import { ClientComponent } from "./client/client.component";
 
 
 const routes: Routes = [
@@ -12,9 +13,7 @@ const routes: Routes = [
     {path: 'login' , component: LoginComponent},
     {path: 'otp' , component: OtpComponent},
     {path: 'home' , component: HomeComponent},
-    {path: 'client' , children: [
-        {path: 'categories' , component: CategoriesComponent}
-    ]}
+    {path: 'client' , component: ClientComponent}
 ]
 
 

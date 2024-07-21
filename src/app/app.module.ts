@@ -26,6 +26,8 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AvatarModule } from 'primeng/avatar';
 import { CategoriesComponent } from './categories/categories.component';
+import { TabViewModule } from 'primeng/tabview';
+import { ClientComponent } from './client/client.component';
 
 
 
@@ -38,6 +40,7 @@ import { CategoriesComponent } from './categories/categories.component';
     HomeComponent,
     NavbarComponent,
     CategoriesComponent,
+    ClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { CategoriesComponent } from './categories/categories.component';
     ToastModule,
     CardModule,
     InputOtpModule,
-    AvatarModule
+    AvatarModule,
+    TabViewModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
