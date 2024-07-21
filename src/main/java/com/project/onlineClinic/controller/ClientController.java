@@ -23,4 +23,9 @@ public class ClientController {
     public List<Object[]> getAllSpecialization(){
         return clientServ.findAllSpecialization();
     }
+
+    @GetMapping("getAllDoctorForSpec/{specialization}")
+    public List<Object[]> getAllDoctorForSpecialization(@PathVariable String specialization){
+        return clientServ.findAllDoctorForSpecialization("test");
+    }
 }
