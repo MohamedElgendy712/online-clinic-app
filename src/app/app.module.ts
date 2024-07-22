@@ -28,6 +28,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { CategoriesComponent } from './categories/categories.component';
 import { TabViewModule } from 'primeng/tabview';
 import { ClientComponent } from './client/client.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 
 
@@ -41,6 +42,7 @@ import { ClientComponent } from './client/client.component';
     NavbarComponent,
     CategoriesComponent,
     ClientComponent,
+    DoctorProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,59 @@
+<navbar></navbar>
+
+<div class="container px-4">
+
+    <div class="header flex flex-column align-items-center">
+        <h1>Dr. [doctor name]</h1>
+        <h3 class="m-0">[Specialization]</h3>
+    </div>
+    <div class="mt-5 flex flex-column lg:flex-row">
+
+        <div class="profile-section ">
+            <div class="info flex align-items-center gap-4">
+                <div class="img w-12rem h-12rem">
+                    <p-avatar 
+                        [style]="{width: '100%' , height: '100%'}"
+                        icon="pi pi-user" 
+                        styleClass="mr-2" size="xlarge" />
+                </div>
+                <div class="info">
+                    <p>Years of Experience: [experience]</p>
+                    <p>Email: [doctor email]</p>
+                    <p>phone: [doctor phone]</p>
+                    <p>Rating: [doctor rating]</p>
+                </div>
+            </div>
+            <div class="btns flex align-items-center gap-4 mt-4">
+                <button class=" review-btn py-2 md:py-3 px-4 md:px-5 text-lg font-semibold border-none border-round-lg cursor-pointer">Add Review</button>
+                <button class="book-btn py-2 md:py-3 px-4 md:px-5 text-lg font-semibold border-none border-round-lg cursor-pointer">Book Appointment</button>
+            </div>
+        </div>
+
+        <div class="reviews-containe flex-1 flex flex-column align-items-center gap-3">
+            <h2 class="m-0 text-center">Reviews</h2>
+            <div class="reviews w-9">
+                <div class="review p-3 shadow-3 border-round mb-3">
+                    <div class="reviewer-info flex align-items-center gap-2 mb-3">
+                        <div class="reviewer-name flex align-items-center">
+                            <p-avatar 
+                                icon="pi pi-user" 
+                                styleClass="mr-2" 
+                                size="large" 
+                                shape="circle" />
+                                <p class="m-0">[Review name]</p>
+                        </div>
+                        <p class="review-date m-0">[Review date]</p>
+                        <p class="review-rating m-0">[Review rating]</p>
+
+                    </div>
+                    <div class="review-body">
+                        <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam harum sed facere nobis nisi, soluta repellat veniam, libero voluptatem temporibus eaque, maxime quod vero fuga ratione praesentium! Rerum, vitae officiis?</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
