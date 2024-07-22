@@ -10,7 +10,7 @@
                 <h3>Number of doctors: {{spec[1]}}</h3>
             </div>
             <div class="flex justify-content-center px-3 pb-4">
-                <button class="w-full py-2 px-4 text-lg font-semibold border-none border-round-lg cursor-pointer">Show Doctors</button>
+                <button (click)="onShowDoctors(spec[0])" class="w-full py-2 px-4 text-lg font-semibold border-none border-round-lg cursor-pointer">Show Doctors</button>
             </div>
         </div>
         

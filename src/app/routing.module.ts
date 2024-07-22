@@ -7,6 +7,7 @@ import { HomeComponent } from "./home/home.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import { ClientComponent } from "./client/client.component";
 import { DoctorProfileComponent } from "./doctor-profile/doctor-profile.component";
+import { AllDoctorsForSpecialization } from "./all-doctors-for-spec/all-doctors-for-spec.component";
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
     {path: 'login' , component: LoginComponent},
     {path: 'otp' , component: OtpComponent},
     {path: 'home' , component: HomeComponent},
-    {path: 'client' , component: ClientComponent}
+    {path: 'client' , component: ClientComponent},
+    {path: 'allDoctors' , component: AllDoctorsForSpecialization}
 ]
 
 

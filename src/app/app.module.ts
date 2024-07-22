@@ -29,6 +29,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { TabViewModule } from 'primeng/tabview';
 import { ClientComponent } from './client/client.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { AllDoctorsForSpecialization } from './all-doctors-for-spec/all-doctors-for-spec.component';
 
 
 
@@ -43,6 +44,7 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     CategoriesComponent,
     ClientComponent,
     DoctorProfileComponent,
+    AllDoctorsForSpecialization
   ],
   imports: [
     BrowserModule,

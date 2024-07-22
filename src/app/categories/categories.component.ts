@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ClientService } from '../services/client.service';
 import { specializationsImages } from '../lookup';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -12,7 +13,7 @@ export class CategoriesComponent implements OnInit {
   allSpecialization: any;
   specializationsImgs = specializationsImages;
 
-
+  router : Router = inject(Router)
 
   ngOnInit(): void {
     this.clientServ.getAllSpecializations().subscribe((res) => {
@@ -21,6 +22,9 @@ export class CategoriesComponent implements OnInit {
     })
   }
 
+  onShowDoctors(spec : string){
+    this.router.navigate(['/allDoctors'] , {queryParams : {specialization : spec}})
+  }
 
 
 }
