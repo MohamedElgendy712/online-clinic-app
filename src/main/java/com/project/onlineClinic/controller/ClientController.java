@@ -26,6 +26,6 @@ public class ClientController {
 
     @GetMapping("getAllDoctorForSpec/{specialization}")
     public List<Object[]> getAllDoctorForSpecialization(@PathVariable String specialization){
-        return clientServ.findAllDoctorForSpecialization("test");
+        return clientServ.findAllDoctorForSpecialization(specialization);
     }
 }

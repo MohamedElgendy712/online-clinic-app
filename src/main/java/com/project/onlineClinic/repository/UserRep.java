@@ -3,6 +3,7 @@ package com.project.onlineClinic.repository;
 import com.project.onlineClinic.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
