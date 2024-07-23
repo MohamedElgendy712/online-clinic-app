@@ -3,8 +3,8 @@
 <div class="container px-4">
 
     <div class="header flex flex-column align-items-center">
-        <h1>Dr. [doctor name]</h1>
-        <h3 class="m-0">[Specialization]</h3>
+        <h1>Dr. {{doctorInfo.firstName}} {{doctorInfo.lastName}}</h1>
+        <h3 class="m-0">{{doctorInfo.specialization}}</h3>
     </div>
     <div class="mt-5 flex flex-column lg:flex-row">
 
@@ -17,9 +17,9 @@
                         styleClass="mr-2" size="xlarge" />
                 </div>
                 <div class="info">
-                    <p>Years of Experience: [experience]</p>
-                    <p>Email: [doctor email]</p>
-                    <p>phone: [doctor phone]</p>
+                    <p>Years of Experience: {{doctorInfo.experience}}</p>
+                    <p>Email: {{doctorInfo.email}}</p>
+                    <p>phone: {{doctorInfo.phone}}</p>
                     <p>Rating: [doctor rating]</p>
                 </div>
             </div>
@@ -29,11 +29,11 @@
             </div>
         </div>
 
-        <div class="reviews-containe flex-1 flex flex-column align-items-center gap-3">
+        <div class="reviews-containe flex-1 flex flex-column align-items-center gap-3 mt-5 lg:mt-0">
             <h2 class="m-0 text-center">Reviews</h2>
             <div class="reviews w-9">
                 <div class="review p-3 shadow-3 border-round mb-3">
-                    <div class="reviewer-info flex align-items-center gap-2 mb-3">
+                    <div class="reviewer-info flex flex-wrap align-items-center gap-2 mb-3">
                         <div class="reviewer-name flex align-items-center">
                             <p-avatar 
                                 icon="pi pi-user" 

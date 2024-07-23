@@ -11,12 +11,13 @@ import { AllDoctorsForSpecialization } from "./all-doctors-for-spec/all-doctors-
 
 
 const routes: Routes = [
-    {path: '' , component: DoctorProfileComponent},
+    {path: '' , component: RegistrationComponent},
     {path: 'login' , component: LoginComponent},
     {path: 'otp' , component: OtpComponent},
     {path: 'home' , component: HomeComponent},
     {path: 'client' , component: ClientComponent},
-    {path: 'allDoctors' , component: AllDoctorsForSpecialization}
+    {path: 'allDoctors' , component: AllDoctorsForSpecialization},
+    {path: 'doctorProfile' , component: DoctorProfileComponent}
 ]
 
 

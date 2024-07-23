@@ -39,4 +39,12 @@ export class ClientService{
     getAllDoctorsForSpecialization(spec : string){
         return this.http.get(`http://localhost:8080/user/getAllDoctorForSpec/${spec}`)
     }
+
+    getDoctorById(id: string){
+        return this.http.get(`http://localhost:8080/user/getDoctorById/${id}`)
+    }
+
+    getAllReviewsForDoctor(doctorId: string){
+        return this.http.get(`http://localhost:8080/user/getAllReviewsForDoctor/${doctorId}`)
+    }
 }
