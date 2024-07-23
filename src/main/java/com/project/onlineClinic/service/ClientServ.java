@@ -1,5 +1,6 @@
 package com.project.onlineClinic.service;
 
+import com.project.onlineClinic.entity.Review;
 import com.project.onlineClinic.entity.User;
 import com.project.onlineClinic.repository.ReviewRep;
 import com.project.onlineClinic.repository.UserRep;
@@ -26,5 +27,15 @@ public class ClientServ {
     public List<Object[]> findAllDoctorForSpecialization(String specialization){
         return reviewRep.findAllDoctorForSpecialization(specialization);
     }
+
+    public User findDoctorById(int id){
+        return userRep.findById(id);
+    }
+
+    /*
+    public List<Review> findReviewsByDoctorId(int id){
+        return reviewRep.findReviewsByDoctorId(id);
+    }
+    */
 
 }

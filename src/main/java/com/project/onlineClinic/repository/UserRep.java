@@ -10,6 +10,8 @@ import java.util.List;
 public interface UserRep extends JpaRepository<User, Integer> {
 
     User findByEmail(String email);
+
+    User findById(int id);
     @Query(value = "SELECT u.specialization , COUNT(u) FROM User u WHERE u.isDoctor = true GROUP BY u.specialization")
     List<Object[]> findAllSpecialization();
 }

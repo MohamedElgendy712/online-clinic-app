@@ -13,4 +13,9 @@ public interface ReviewRep extends JpaRepository<Review , Integer> {
             "FROM (SELECT r.doctor.userId AS doctorId, COUNT(r) AS noReviews, AVG(r.rating) AS rating FROM Review r GROUP BY r.doctor.userId) t " +
             "JOIN User u ON (t.doctorId = u.userId and u.specialization = :spec)")
     List<Object[]> findAllDoctorForSpecialization(@Param("spec") String Specialization);
+
+    /*
+    @Query("SELECT r.review FROM Review r WHERE r.doctorId = :doctorId")
+    List<Review> findReviewsByDoctorId(@Param("doctorId") int id);
+     */
 }
