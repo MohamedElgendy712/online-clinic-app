@@ -32,10 +32,10 @@ public class ClientServ {
         return userRep.findById(id);
     }
 
-    /*
+
     public List<Review> findReviewsByDoctorId(int id){
         return reviewRep.findReviewsByDoctorId(id);
     }
-    */
+
 
 }

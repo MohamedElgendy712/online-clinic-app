@@ -14,8 +14,8 @@ public interface ReviewRep extends JpaRepository<Review , Integer> {
             "JOIN User u ON (t.doctorId = u.userId and u.specialization = :spec)")
     List<Object[]> findAllDoctorForSpecialization(@Param("spec") String Specialization);
 
-    /*
-    @Query("SELECT r.review FROM Review r WHERE r.doctorId = :doctorId")
+
+    @Query("SELECT r FROM Review r WHERE r.doctor.userId = :doctorId")
     List<Review> findReviewsByDoctorId(@Param("doctorId") int id);
-     */
+
 }

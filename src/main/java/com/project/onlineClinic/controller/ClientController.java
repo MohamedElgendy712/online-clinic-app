@@ -35,11 +35,11 @@ public class ClientController {
         return clientServ.findDoctorById(id);
     }
 
-    /*
+
     @GetMapping("getAllReviewsForDoctor/{id}")
     public List<Review> getReviewsByDoctorId(@PathVariable int id){
         return clientServ.findReviewsByDoctorId(id);
     }
-     */
+
 
 }
