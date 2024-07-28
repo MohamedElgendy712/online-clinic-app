@@ -28,12 +28,12 @@ export class DoctorProfileComponent implements OnInit {
       this.doctorInfo = res;
     })
 
-    /*
+    
     this.clientService.getAllReviewsForDoctor(this.doctorId).subscribe((res) => {
       console.log(res);
       this.allReview = res;
     })
-      */
+      
   }
 
 }

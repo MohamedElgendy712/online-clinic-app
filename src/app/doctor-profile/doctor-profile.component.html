@@ -20,7 +20,6 @@
                     <p>Years of Experience: {{doctorInfo.experience}}</p>
                     <p>Email: {{doctorInfo.email}}</p>
                     <p>phone: {{doctorInfo.phone}}</p>
-                    <p>Rating: [doctor rating]</p>
                 </div>
             </div>
             <div class="btns flex align-items-center gap-4 mt-4">
@@ -32,7 +31,7 @@
         <div class="reviews-containe flex-1 flex flex-column align-items-center gap-3 mt-5 lg:mt-0">
             <h2 class="m-0 text-center">Reviews</h2>
             <div class="reviews w-9">
-                <div class="review p-3 shadow-3 border-round mb-3">
+                <div class="review p-3 shadow-3 border-round mb-3" *ngFor="let review of allReview">
                     <div class="reviewer-info flex flex-wrap align-items-center gap-2 mb-3">
                         <div class="reviewer-name flex align-items-center">
                             <p-avatar 
@@ -40,14 +39,14 @@
                                 styleClass="mr-2" 
                                 size="large" 
                                 shape="circle" />
-                                <p class="m-0">[Review name]</p>
+                                <p class="m-0">{{review.reviewerName}}</p>
                         </div>
-                        <p class="review-date m-0">[Review date]</p>
-                        <p class="review-rating m-0">[Review rating]</p>
+                        <p class="review-date m-0">Date: {{review.reviewDate}}</p>
+                        <p class="review-rating m-0">Rating: {{review.rating}}</p>
 
                     </div>
                     <div class="review-body">
-                        <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam harum sed facere nobis nisi, soluta repellat veniam, libero voluptatem temporibus eaque, maxime quod vero fuga ratione praesentium! Rerum, vitae officiis?</p>
+                        <p class="m-0">{{review.review}}</p>
                     </div>
                 </div>
                 
