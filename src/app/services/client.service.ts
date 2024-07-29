@@ -22,8 +22,6 @@ export class ClientService{
             
             this.user = res;
 
-            console.log(this.user)
-
             if(this.user.isDoctor){
                 this.router.navigate(['home']);
             }else{

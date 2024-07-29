@@ -1,0 +1,17 @@
+*{
+    color: #7F8C8D;
+}
+.container{
+    height: 100vh;
+    background: #7f8c8d38;
+}
+
+button{
+    color: white;
+    background: #58D68D;
+}
+
+.cancel-btn{
+    color: white;
+    background: #e93c3c;
+}

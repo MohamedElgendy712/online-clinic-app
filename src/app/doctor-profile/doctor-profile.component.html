@@ -11,10 +11,8 @@
         <div class="profile-section ">
             <div class="info flex align-items-center gap-4">
                 <div class="img w-12rem h-12rem">
-                    <p-avatar 
-                        [style]="{width: '100%' , height: '100%'}"
-                        icon="pi pi-user" 
-                        styleClass="mr-2" size="xlarge" />
+                    <p-avatar [style]="{width: '100%' , height: '100%'}" icon="pi pi-user" styleClass="mr-2"
+                        size="xlarge" />
                 </div>
                 <div class="info">
                     <p>Years of Experience: {{doctorInfo.experience}}</p>
@@ -23,8 +21,13 @@
                 </div>
             </div>
             <div class="btns flex align-items-center gap-4 mt-4">
-                <button class=" review-btn py-2 md:py-3 px-4 md:px-5 text-lg font-semibold border-none border-round-lg cursor-pointer">Add Review</button>
-                <button class="book-btn py-2 md:py-3 px-4 md:px-5 text-lg font-semibold border-none border-round-lg cursor-pointer">Book Appointment</button>
+                <button
+                    class="book-btn py-2 md:py-3 px-4 md:px-5 text-lg font-semibold border-none border-round-lg cursor-pointer">Book
+                    Appointment</button>
+                <button
+                    (click)="addReview()"
+                    class=" review-btn py-2 md:py-3 px-4 md:px-5 text-lg font-semibold border-none border-round-lg cursor-pointer">Add
+                    Review</button>
             </div>
         </div>
 
@@ -34,12 +37,8 @@
                 <div class="review p-3 shadow-3 border-round mb-3" *ngFor="let review of allReview">
                     <div class="reviewer-info flex flex-wrap align-items-center gap-2 mb-3">
                         <div class="reviewer-name flex align-items-center">
-                            <p-avatar 
-                                icon="pi pi-user" 
-                                styleClass="mr-2" 
-                                size="large" 
-                                shape="circle" />
-                                <p class="m-0">{{review.reviewerName}}</p>
+                            <p-avatar icon="pi pi-user" styleClass="mr-2" size="large" shape="circle" />
+                            <p class="m-0">{{review.reviewerName}}</p>
                         </div>
                         <p class="review-date m-0">Date: {{review.reviewDate}}</p>
                         <p class="review-rating m-0">Rating: {{review.rating}}</p>
@@ -49,10 +48,11 @@
                         <p class="m-0">{{review.review}}</p>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
     </div>
-    
+
+    <app-review-popup *ngIf="reviewServ.reviewPopup"></app-review-popup>
 </div>

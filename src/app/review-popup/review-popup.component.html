@@ -1,0 +1,65 @@
+<div class="container absolute top-0 left-0 w-full flex flex-wrap justify-content-center align-content-center px-3">
+
+    <form class="bg-white px-3 border-round-lg shadow-3 w-30rem" (ngSubmit)="onFormSubmitted()" #registrationForm="ngForm">
+        <h1 class="text-center">Add Review</h1>
+
+        <div class="email mb-4">
+            <div>
+                    <label class="mr-3" for="rating">Rating</label>
+                    <p-rating 
+                        class="w-full" 
+                        id="rating"
+                        name="rating"
+                        ngModel
+                        #rating="ngModel"
+                        required
+                        [cancel]="false" />
+
+                <div *ngIf="rating.invalid && rating.touched">
+                    <small class="text-red-500 font-semibold">*You entered an invalid rating</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="password mb-4">
+            <div>
+                <p-floatLabel>
+                    <textarea
+                        class="w-full"
+                        pInputTextarea
+                        ngModel
+                        #review="ngModel"
+                        required
+                        rows="5" 
+                        cols="30"
+                        name="review"
+                        id="review"
+                        [autoResize]="true"
+                    >
+                    </textarea>
+                    <label for="review">Review</label>
+                </p-floatLabel>
+                <div *ngIf="review.invalid && review.touched">
+                    <small class="text-red-500 font-semibold">*You entered an invalid review</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="sumbit-btn flex justify-content-around mb-4">
+            <button 
+                class="w-5 py-2 px-6 text-lg font-semibold border-none border-round-lg cursor-pointer" 
+                type="submit"
+                [disabled]="!registrationForm.valid"
+            >
+                    Add
+            </button>
+            <button 
+                class="cancel-btn w-5 py-2 px-6 text-lg font-semibold border-none border-round-lg cursor-pointer"
+                (click)="onCancel()"          
+            >
+                    Cancel
+            </button>
+        </div>
+
+    </form>
+</div>

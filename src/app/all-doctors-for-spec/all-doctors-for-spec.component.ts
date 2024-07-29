@@ -23,7 +23,6 @@ export class AllDoctorsForSpecialization implements OnInit {
     this.clientServ.getAllDoctorsForSpecialization(this.specialization).subscribe(
       {
         next: (res)=>{
-          console.log(res)
           this.allDoctor = res
         }
       }

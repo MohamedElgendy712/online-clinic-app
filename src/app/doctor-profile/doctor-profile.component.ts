@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../Models/user';
 import { ClientService } from '../services/client.service';
+import { ReviewServ } from '../services/review.service';
 
 @Component({
   selector: 'doctor-profile',
@@ -12,6 +13,8 @@ export class DoctorProfileComponent implements OnInit {
 
   clientService: ClientService = inject(ClientService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
+  reviewServ : ReviewServ = inject(ReviewServ);
+
   doctorId: string;
   doctorInfo: User;
   allReview: any;
@@ -34,6 +37,11 @@ export class DoctorProfileComponent implements OnInit {
       this.allReview = res;
     })
       
+  }
+
+
+  addReview(){
+    this.reviewServ.toggelReviewPopup(this.doctorInfo)
   }
 
 }

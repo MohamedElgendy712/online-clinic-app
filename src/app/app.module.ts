@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RoutingModule } from './routing.module';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { CalendarModule } from 'primeng/calendar';
@@ -15,6 +16,7 @@ import { PasswordModule } from 'primeng/password';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { InputOtpModule } from 'primeng/inputotp';
+import { RatingModule } from 'primeng/rating';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -30,6 +32,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { ClientComponent } from './client/client.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { AllDoctorsForSpecialization } from './all-doctors-for-spec/all-doctors-for-spec.component';
+import { ReviewPopUp } from './review-popup/review-popup.component';
 
 
 
@@ -44,7 +47,8 @@ import { AllDoctorsForSpecialization } from './all-doctors-for-spec/all-doctors-
     CategoriesComponent,
     ClientComponent,
     DoctorProfileComponent,
-    AllDoctorsForSpecialization
+    AllDoctorsForSpecialization,
+    ReviewPopUp
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,8 @@ import { AllDoctorsForSpecialization } from './all-doctors-for-spec/all-doctors-
     FormsModule,
     BrowserAnimationsModule,
     InputTextModule,
+    InputTextareaModule,
+    RatingModule,
     FloatLabelModule,
     InputNumberModule,
     CalendarModule,
