@@ -1,9 +1,11 @@
 package com.project.onlineClinic.service;
 
-import com.project.onlineClinic.dto.AddReviewRequestDTO;
+
 import com.project.onlineClinic.dto.ResponseDTO;
 import com.project.onlineClinic.entity.Review;
+import com.project.onlineClinic.entity.Appointment;
 import com.project.onlineClinic.entity.User;
+import com.project.onlineClinic.repository.AppointmentRep;
 import com.project.onlineClinic.repository.ReviewRep;
 import com.project.onlineClinic.repository.UserRep;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class ClientServ {
 
     @Autowired
     ResponseDTO response;
+
+    @Autowired
+    AppointmentRep appointmentRep;
 
     public User getUserInfo(String email){
         return userRep.findByEmail(email);
@@ -50,6 +55,15 @@ public class ClientServ {
 
         response.setCode(HttpStatus.OK);
         response.setMessage("Review created successfully");
+    }
+
+    public void bookAppointment(Appointment appointment){
+
+        Appointment a = new Appointment(appointment.getPatient() , appointment.getDoctor() , appointment.getAppointmentDate() , appointment.getAppointmentSpecialization() , appointment.getAppointmentStatus());
+        appointmentRep.save(a);
+
+        response.setCode(HttpStatus.OK);
+        response.setMessage("Appointment is booked successfully");
     }
 
 }
