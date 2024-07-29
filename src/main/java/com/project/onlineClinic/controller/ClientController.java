@@ -1,6 +1,5 @@
 package com.project.onlineClinic.controller;
 
-import com.project.onlineClinic.dto.AddReviewRequestDTO;
 import com.project.onlineClinic.dto.ResponseDTO;
 import com.project.onlineClinic.entity.Review;
 import com.project.onlineClinic.entity.User;
