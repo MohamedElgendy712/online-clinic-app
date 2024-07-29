@@ -1,6 +1,7 @@
 package com.project.onlineClinic.service;
 
 
+import com.project.onlineClinic.dto.ChangeAppointmentStatusDTO;
 import com.project.onlineClinic.dto.ResponseDTO;
 import com.project.onlineClinic.entity.Review;
 import com.project.onlineClinic.entity.Appointment;
@@ -66,4 +67,18 @@ public class ClientServ {
         response.setMessage("Appointment is booked successfully");
     }
 
+    public List<Appointment> getAllAppointmentForPatient(int id){
+        return appointmentRep.getAllAppointmentForPatient(id);
+    }
+
+    public List<Appointment> getAppointmentsHistoryForPatient(int id){
+        return appointmentRep.getAppointmentsHistoryForPatient(id);
+    }
+
+    public void updateAppointmentStatus(ChangeAppointmentStatusDTO request){
+        appointmentRep.updateAppointmentStatus(request.getId(),request.getStatus());
+
+        response.setCode(HttpStatus.OK);
+        response.setMessage("Appointment is updated successfully");
+    }
 }

@@ -1,6 +1,7 @@
 package com.project.onlineClinic.controller;
 
 
+import com.project.onlineClinic.dto.ChangeAppointmentStatusDTO;
 import com.project.onlineClinic.dto.ResponseDTO;
 import com.project.onlineClinic.entity.Review;
 import com.project.onlineClinic.entity.Appointment;
@@ -56,6 +57,22 @@ public class ClientController {
     @PostMapping("bookAppointment")
     public ResponseEntity<ResponseDTO> bookAppointment(@RequestBody Appointment appointment){
         clientServ.bookAppointment(appointment);
+
+        return new ResponseEntity<>(response , response.getCode());
+    }
+
+    @GetMapping("getAllAppointmentForPatient/{id}")
+    public List<Appointment> getAllAppointmentForPatient(@PathVariable int id){
+        return clientServ.getAllAppointmentForPatient(id);
+    }
+
+    @GetMapping("getAppointmentsHistoryForPatient/{id}")
+    public List<Appointment> getAppointmentsHistoryForPatient(@PathVariable int id){
+        return clientServ.getAppointmentsHistoryForPatient(id);
+    }
+    @PutMapping("updateAppointmentStatus")
+    public ResponseEntity<ResponseDTO> updateAppointmentStatus(@RequestBody ChangeAppointmentStatusDTO request){
+        clientServ.updateAppointmentStatus(request);
 
         return new ResponseEntity<>(response , response.getCode());
     }
