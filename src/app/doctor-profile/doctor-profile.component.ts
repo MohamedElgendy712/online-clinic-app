@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../Models/user';
 import { ClientService } from '../services/client.service';
 import { ReviewServ } from '../services/review.service';
+import { AppoientmentSrvice } from '../services/appointment.service';
 
 @Component({
   selector: 'doctor-profile',
@@ -14,6 +15,7 @@ export class DoctorProfileComponent implements OnInit {
   clientService: ClientService = inject(ClientService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
   reviewServ : ReviewServ = inject(ReviewServ);
+  appointmentService: AppoientmentSrvice = inject(AppoientmentSrvice);
 
   doctorId: string;
   doctorInfo: User;
@@ -42,6 +44,10 @@ export class DoctorProfileComponent implements OnInit {
 
   addReview(){
     this.reviewServ.toggelReviewPopup(this.doctorInfo)
+  }
+
+  bookAppointment(){
+    this.appointmentService.toggleAppointmentPopup(this.doctorInfo)
   }
 
 }

@@ -33,6 +33,7 @@ import { ClientComponent } from './client/client.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { AllDoctorsForSpecialization } from './all-doctors-for-spec/all-doctors-for-spec.component';
 import { ReviewPopUp } from './review-popup/review-popup.component';
+import { AppoientmentPopupComponent } from './appoientment-popup/appoientment-popup.component';
 
 
 
@@ -48,7 +49,8 @@ import { ReviewPopUp } from './review-popup/review-popup.component';
     ClientComponent,
     DoctorProfileComponent,
     AllDoctorsForSpecialization,
-    ReviewPopUp
+    ReviewPopUp,
+    AppoientmentPopupComponent
   ],
   imports: [
     BrowserModule,

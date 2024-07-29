@@ -9,11 +9,12 @@ import { ClientComponent } from "./client/client.component";
 import { DoctorProfileComponent } from "./doctor-profile/doctor-profile.component";
 import { AllDoctorsForSpecialization } from "./all-doctors-for-spec/all-doctors-for-spec.component";
 import { ReviewPopUp } from "./review-popup/review-popup.component";
+import { AppoientmentPopupComponent } from "./appoientment-popup/appoientment-popup.component";
 
 
 const routes: Routes = [
-    {path: '' , component: RegistrationComponent},
-    {path: 'login' , component: LoginComponent},
+    {path: '' , component: LoginComponent},
+    {path: 'register' , component: RegistrationComponent},
     {path: 'otp' , component: OtpComponent},
     {path: 'home' , component: HomeComponent},
     {path: 'client' , component: ClientComponent},

@@ -3,7 +3,7 @@
 }
 .container{
     height: 100vh;
-    background: #5DADE2;
+    background: #7f8c8d38;
 }
 
 button{
@@ -11,10 +11,7 @@ button{
     background: #58D68D;
 }
 
-a{
-    color: #5DADE2;
-}
-
-a:hover{
-    text-decoration: none;
+.cancel-btn{
+    color: white;
+    background: #e93c3c;
 }

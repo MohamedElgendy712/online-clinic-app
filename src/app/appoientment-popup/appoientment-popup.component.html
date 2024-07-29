@@ -1,0 +1,46 @@
+<div class="container absolute top-0 left-0 w-full flex flex-wrap justify-content-center align-content-center px-3">
+
+    <form class="bg-white px-3 border-round-lg shadow-3 w-30rem" (ngSubmit)="onFormSubmitted()" #registrationForm="ngForm">
+        <h1 class="text-center">Book Appointment</h1>
+
+        <div class="date mb-4">
+            <div>
+                <p-floatLabel>
+                    <p-calendar
+                        [style]="{width: '100%'}"
+                        inputId="appoinetment_date" 
+                        name="appointment_date"
+                        ngModel
+                        #date="ngModel"
+                        required
+                        [minDate]="minDate"
+                        [readonlyInput]="true"
+                    />
+                    <label for="birth_date">Appointment Date</label>
+                </p-floatLabel>
+
+                <div *ngIf="date.invalid && date.touched">
+                    <small class="text-red-500 font-semibold">*You have to choose a suitable date</small>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="sumbit-btn flex justify-content-around mb-4">
+            <button 
+                class="w-5 py-2 px-6 text-lg font-semibold border-none border-round-lg cursor-pointer" 
+                type="submit"
+                [disabled]="!registrationForm.valid"
+            >
+                    Book
+            </button>
+            <button 
+                class="cancel-btn w-5 py-2 px-6 text-lg font-semibold border-none border-round-lg cursor-pointer"
+                (click)="onCancel()"          
+            >
+                    Cancel
+            </button>
+        </div>
+
+    </form>
+</div>
