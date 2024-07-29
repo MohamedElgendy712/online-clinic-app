@@ -34,6 +34,9 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
 import { AllDoctorsForSpecialization } from './all-doctors-for-spec/all-doctors-for-spec.component';
 import { ReviewPopUp } from './review-popup/review-popup.component';
 import { AppoientmentPopupComponent } from './appoientment-popup/appoientment-popup.component';
+import { AppointmentCardComponent } from './appoinment-card/appointment-card.componenet';
+import { ClientAppointmentComponent } from './client-appoinment/client-appointment.component';
+import { ClientHistoryComponent } from './client-history/client-history.component';
 
 
 
@@ -50,7 +53,10 @@ import { AppoientmentPopupComponent } from './appoientment-popup/appoientment-po
     DoctorProfileComponent,
     AllDoctorsForSpecialization,
     ReviewPopUp,
-    AppoientmentPopupComponent
+    AppoientmentPopupComponent,
+    AppointmentCardComponent,
+    ClientAppointmentComponent,
+    ClientHistoryComponent
   ],
   imports: [
     BrowserModule,

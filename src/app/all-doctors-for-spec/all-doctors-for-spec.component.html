@@ -9,12 +9,11 @@
                         styleClass="mr-2 border-noround-bottom" size="xlarge" />
                 </ng-template>
                 <h3 class="m-0 mb-1">Years of experience: {{doc[3]}}</h3>
-                <h3 class="m-0 mb-1">Rating: {{doc[7] | number : '1.1-2'}}</h3>
-                <h3 class="m-0 mb-1">Number Of Review: {{doc[6]}}</h3>
+                <h3 class="m-0 mb-1">Rating: {{(doc[7] | number : '1.1-2') ?? 0}}</h3>
+                <h3 class="m-0 mb-1">Number Of Review: {{doc[6] ?? 0}}</h3>
                 <ng-template pTemplate="footer">
                     <div class="flex gap-3">
                         <button [routerLink]="'/doctorProfile'" [queryParams]="{doctorId : doc[0]}" class="w-full review-btn py-2 px-4 text-lg font-semibold border-none border-round-lg cursor-pointer">View</button>
-                        <button class="w-full book-btn py-2 px-4 text-lg font-semibold border-none border-round-lg cursor-pointer">Book</button>
                     </div>
                 </ng-template>
             </p-card>

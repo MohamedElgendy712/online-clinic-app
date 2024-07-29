@@ -1,0 +1,33 @@
+<div class="flex shadow-1">
+    <div>
+        <p-avatar [style]="{width: '100px' , height: '100%'}" icon="pi pi-calendar"
+            styleClass="mr-2 border-noround-bottom" size="xlarge" />
+    </div>
+
+    <div class="flex flex-column flex-1">
+        <div class="flex flex-1 pr-2 align-items-start justify-content-between flex-column md:flex-row">
+            <div>
+                <p><b>Doctor:</b> {{appointment.doctor.firstName}} {{appointment.doctor.lastName}}</p>
+                <p><b>Patient:</b> {{appointment.patient.firstName}} {{appointment.patient.lastName}}</p>
+                <p><b>Category:</b> {{appointment.appointmentSpecialization}}</p>
+            </div>
+            <div>
+                <p><b>Date:</b> {{appointment.appointmentDate | date}}</p>
+                <p><b>Status:</b> {{appointment.appointmentStatus | uppercase}}</p>
+            </div>
+        </div>
+
+        <div class="ml-auto mr-2 mb-2">
+            <button
+                *ngIf="appointment.appointmentStatus == 'active'"
+                (click)="onChangeAppointmentStatus(appointment.appointmentId, 'closed')"
+                class="cancel-btn py-2 px-3 text-lg border-none border-round cursor-pointer mr-2">
+                Cancel</button>
+            <button
+                *ngIf="clientServ.user.isDoctor && appointment.appointmentStatus == 'active'"
+                (click)="onChangeAppointmentStatus(appointment.appointmentId, 'cancelled')"
+                class="close-btn py-2 px-3 text-lg border-none border-round cursor-pointer">
+                Close</button>
+        </div>
+    </div>
+</div>

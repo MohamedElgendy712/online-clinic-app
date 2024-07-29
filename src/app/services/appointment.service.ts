@@ -33,5 +33,15 @@ export class AppoientmentSrvice{
         return this.http.post("http://localhost:8080/user/bookAppointment" , appointment);
     }
 
+    getAllAppointmentForPatient(id : number){
+        return this.http.get(`http://localhost:8080/user/getAllAppointmentForPatient/${id}`);
+    }
 
+    getAppointmentsHistoryForPatient(id: number){
+        return this.http.get(`http://localhost:8080/user/getAppointmentsHistoryForPatient/${id}`);
+    }
+
+    cheangeAppointmentStatus(id : number , status : string){
+        return this.http.put(`http://localhost:8080/user/updateAppointmentStatus` , {id : id , status : status});
+    }
 }

@@ -11,7 +11,7 @@ export class Appointment{
         this.appointmentStatus = sessionStatus
 
     }
-
+    appointmentId: number
     patient: User
     doctor: User
     appointmentDate: Date

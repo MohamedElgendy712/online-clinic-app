@@ -10,6 +10,7 @@ import { DoctorProfileComponent } from "./doctor-profile/doctor-profile.componen
 import { AllDoctorsForSpecialization } from "./all-doctors-for-spec/all-doctors-for-spec.component";
 import { ReviewPopUp } from "./review-popup/review-popup.component";
 import { AppoientmentPopupComponent } from "./appoientment-popup/appoientment-popup.component";
+import { AppointmentCardComponent } from "./appoinment-card/appointment-card.componenet";
 
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
     {path: 'home' , component: HomeComponent},
     {path: 'client' , component: ClientComponent},
     {path: 'allDoctors' , component: AllDoctorsForSpecialization},
-    {path: 'doctorProfile' , component: DoctorProfileComponent},
+    {path: 'doctorProfile' , component: DoctorProfileComponent}
 ]
 
 
