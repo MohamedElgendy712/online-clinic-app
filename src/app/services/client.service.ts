@@ -23,7 +23,7 @@ export class ClientService{
             this.user = res;
 
             if(this.user.isDoctor){
-                this.router.navigate(['home']);
+                this.router.navigate(['doctor']);
             }else{
                 this.router.navigate(['client']);
             }

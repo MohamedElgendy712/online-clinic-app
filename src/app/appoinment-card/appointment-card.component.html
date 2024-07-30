@@ -20,12 +20,12 @@
         <div class="ml-auto mr-2 mb-2">
             <button
                 *ngIf="appointment.appointmentStatus == 'active'"
-                (click)="onChangeAppointmentStatus(appointment.appointmentId, 'closed')"
+                (click)="onChangeAppointmentStatus(appointment.appointmentId, 'cancelled')"
                 class="cancel-btn py-2 px-3 text-lg border-none border-round cursor-pointer mr-2">
                 Cancel</button>
             <button
                 *ngIf="clientServ.user.isDoctor && appointment.appointmentStatus == 'active'"
-                (click)="onChangeAppointmentStatus(appointment.appointmentId, 'cancelled')"
+                (click)="onChangeAppointmentStatus(appointment.appointmentId, 'closed')"
                 class="close-btn py-2 px-3 text-lg border-none border-round cursor-pointer">
                 Close</button>
         </div>

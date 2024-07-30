@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
   onFormSubmitted() {
     this.registerService.register(this.form.value).subscribe({
       next: (res) => {
-        this.router.navigate(['login'])
+        this.router.navigate([''])
       },
       error: (e: HttpErrorResponse) => {
         this.messageService.add({

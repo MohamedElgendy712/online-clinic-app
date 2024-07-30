@@ -37,6 +37,9 @@ import { AppoientmentPopupComponent } from './appoientment-popup/appoientment-po
 import { AppointmentCardComponent } from './appoinment-card/appointment-card.componenet';
 import { ClientAppointmentComponent } from './client-appoinment/client-appointment.component';
 import { ClientHistoryComponent } from './client-history/client-history.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
+import { DoctorHistoryComponent } from './doctor-history/doctor-history.component';
 
 
 
@@ -56,7 +59,10 @@ import { ClientHistoryComponent } from './client-history/client-history.componen
     AppoientmentPopupComponent,
     AppointmentCardComponent,
     ClientAppointmentComponent,
-    ClientHistoryComponent
+    ClientHistoryComponent,
+    DoctorComponent,
+    DoctorAppointmentComponent,
+    DoctorHistoryComponent
   ],
   imports: [
     BrowserModule,

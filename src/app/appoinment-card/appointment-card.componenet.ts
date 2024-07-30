@@ -18,7 +18,7 @@ export class AppointmentCardComponent {
 
     onChangeAppointmentStatus(id: number , status : string){
         console.log(status)
-        this.appointmentServ.cheangeAppointmentStatus(id , status).subscribe({
+        this.appointmentServ.changeAppointmentStatus(id , status).subscribe({
           next:(res)=>{
             console.log(res)
           }
