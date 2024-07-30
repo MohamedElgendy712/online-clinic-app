@@ -70,6 +70,17 @@ public class ClientController {
     public List<Appointment> getAppointmentsHistoryForPatient(@PathVariable int id){
         return clientServ.getAppointmentsHistoryForPatient(id);
     }
+
+    @GetMapping("getAllAppointmentForDoctor/{id}")
+    public List<Appointment> getAllAppointmentForDoctor(@PathVariable int id){
+        return clientServ.getAllAppointmentForDoctor(id);
+    }
+
+    @GetMapping("getAppointmentsHistoryForDoctor/{id}")
+    public List<Appointment> getAppointmentsHistoryForDoctor(@PathVariable int id){
+        return clientServ.getAppointmentsHistoryForDoctor(id);
+    }
+
     @PutMapping("updateAppointmentStatus")
     public ResponseEntity<ResponseDTO> updateAppointmentStatus(@RequestBody ChangeAppointmentStatusDTO request){
         clientServ.updateAppointmentStatus(request);

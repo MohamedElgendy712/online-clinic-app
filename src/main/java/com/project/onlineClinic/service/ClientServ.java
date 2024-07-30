@@ -75,6 +75,14 @@ public class ClientServ {
         return appointmentRep.getAppointmentsHistoryForPatient(id);
     }
 
+    public List<Appointment> getAllAppointmentForDoctor(int id){
+        return appointmentRep.getAllAppointmentForDoctor(id);
+    }
+
+    public List<Appointment> getAppointmentsHistoryForDoctor(int id){
+        return appointmentRep.getAppointmentsHistoryForDoctor(id);
+    }
+
     public void updateAppointmentStatus(ChangeAppointmentStatusDTO request){
         appointmentRep.updateAppointmentStatus(request.getId(),request.getStatus());
 

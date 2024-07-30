@@ -16,6 +16,12 @@ public interface AppointmentRep extends JpaRepository<Appointment, Integer> {
     @Query("Select a from Appointment a where a.patient.userId = :id and a.appointmentStatus != 'active'")
     List<Appointment> getAppointmentsHistoryForPatient(@Param("id") int id);
 
+    @Query("Select a from Appointment a where a.doctor.userId = :id and a.appointmentStatus = 'active'")
+    List<Appointment> getAllAppointmentForDoctor(@Param("id") int id);
+
+    @Query("Select a from Appointment a where a.doctor.userId = :id and a.appointmentStatus != 'active'")
+    List<Appointment> getAppointmentsHistoryForDoctor(@Param("id") int id);
+
     @Modifying
     @Transactional
     @Query("Update Appointment a Set a.appointmentStatus = :status Where a.appointmentId = :id")
