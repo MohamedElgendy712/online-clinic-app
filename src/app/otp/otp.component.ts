@@ -25,7 +25,7 @@ export class OtpComponent implements OnInit {
     this.otpService.verifyOtp(this.otpValue).subscribe(
       {
         next: (res)=>{
-          this.clientService.getUser(this.otpService.email)
+          this.clientService.getUser()
           this.otpService.toggelOtpPopup()
         },
         error: (e)=>{

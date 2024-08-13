@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { User } from "../Models/user";
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -13,14 +13,14 @@ export class ClientService{
     router: Router = inject(Router);
     user: User;
 
+    obs = new Subject<User>()
 
-    getUser(email: string){
-        console.log(email)
-
-        this.http.get(`http://localhost:8080/user/getUserInfo/${email}`).subscribe(
+    getUser(){
+        this.http.get(`http://localhost:8080/user/getUserInfo` , {withCredentials:true}).subscribe(
             (res: User)=>{
             
             this.user = res;
+            this.notifyUser(res)
 
             if(this.user.isDoctor){
                 this.router.navigate(['doctor']);
@@ -28,6 +28,11 @@ export class ClientService{
                 this.router.navigate(['client']);
             }
         })
+    }
+
+    notifyUser(user? : User){
+        console.log(user)
+        this.obs.next(user)
     }
 
     getAllSpecializations(){

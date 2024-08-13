@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AppoientmentSrvice } from '../services/appointment.service';
 import { ClientService } from '../services/client.service';
 import { Appointment } from '../Models/appointment';
+import { User } from '../Models/user';
 
 @Component({
   selector: 'app-client-history',
@@ -17,9 +18,13 @@ export class ClientHistoryComponent implements OnInit{
     appointments : Appointment[]
 
   ngOnInit(): void {
-      this.appointmentServ.getAppointmentsHistoryForPatient(this.clientServ.user.userId).subscribe({
-        next: (res : Appointment[])=>{
-            this.appointments = res
+      this.clientServ.obs.subscribe({
+        next: (user : User)=>{
+          this.appointmentServ.getAppointmentsHistoryForPatient(user.userId).subscribe({
+            next: (res : Appointment[])=>{
+                this.appointments = res
+            }
+          })
         }
       })
   }
