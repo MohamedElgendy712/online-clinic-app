@@ -7,6 +7,7 @@ import com.project.onlineClinic.entity.Review;
 import com.project.onlineClinic.entity.Appointment;
 import com.project.onlineClinic.entity.User;
 import com.project.onlineClinic.service.ClientServ;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user/")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200" , allowCredentials = "true")
 public class ClientController {
     @Autowired
     private ClientServ clientServ;
@@ -23,8 +24,10 @@ public class ClientController {
     @Autowired
     ResponseDTO response;
 
-    @GetMapping("getUserInfo/{email}")
-    public User getUser(@PathVariable String email){
+    @GetMapping("getUserInfo")
+    public User getUser(HttpSession session){
+        String email = (String) session.getAttribute("sessionId");
+
         return clientServ.getUserInfo(email);
     }
 
